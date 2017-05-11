@@ -18,7 +18,7 @@ import org.xml.sax.SAXException;
  */
 public class Editor {
     public static void main(String[] args) {
-        try {
+        /*try {
             String filePath = new String("c:\\freedocedit\\DM_CARDIOLOGY_EXAMINATION_LDC.XML");
             File file = new File(filePath);
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -26,13 +26,13 @@ public class Editor {
             Document doc = docBuilder.parse(filePath);
 
             XPath xPath = XPathFactory.newInstance().newXPath();
-            NodeList nodes = (NodeList)xPath.evaluate()
+            NodeList nodes = (NodeList)xPath.evaluate();
 
 
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
 
     }
