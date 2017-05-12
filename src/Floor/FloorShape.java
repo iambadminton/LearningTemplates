@@ -30,20 +30,15 @@ public class FloorShape {
         Scanner sc = new Scanner(System.in);
         while (yn.equalsIgnoreCase("y")) {
             i++;
-            //fp = new FloorPoint(i,i);
             fp = new FloorPoint();
             floorPoints.add(fp);
-            //System.out.println("i=" + i + " floorPoints.size=" + floorPoints.size());
             System.out.println("x=" + fp.getX() + "  y=" + fp.getY());
             System.out.println("Продолжить(y/n)?");
             if (sc.hasNextLine()) {
                 yn = sc.nextLine();
             }
         }
-//        System.out.println("Size is " + floorPoints.size());
-//        for (FloorPoint fp1 : floorPoints) {
-//            System.out.println(fp1.getX() + "," + fp1.getY());
-//        }
+
         System.out.println("Введите ширину доски:");
         if (sc.hasNextFloat()) {
             boardWidth = sc.nextFloat();
@@ -76,13 +71,6 @@ public class FloorShape {
 
         }
 
-//        System.out.println("minX = " + minX + ", maxX=" + maxX + ", minY=" + minY + ", maxY=" + maxY);
-//        System.out.println("getMinX(" + minY + ")=" + getMinX(minY, floorPoints));
-//        System.out.println("getMaxX(" + minY + ")=" + getMaxX(minY, floorPoints));
-//        System.out.println("getMinY(" + maxX + ")=" + getMinY(maxX, floorPoints));
-//        System.out.println("getMaxY(" + maxX + ")=" + getMaxY(maxX, floorPoints));
-
-
         minWidth = getMaxY(minX, floorPoints) - getMinY(minX, floorPoints);
         maxLength = getMaxX(minY, floorPoints) - getMinX(minY, floorPoints);
         maxWidth = getMaxY(maxX, floorPoints) - getMinY(maxX, floorPoints);
@@ -91,27 +79,26 @@ public class FloorShape {
         System.out.println("minWidth=" + minWidth);
         System.out.println("maxLength=" + maxLength);
 
-//        for (FloorPoint fp4 : floorPoints) {
-//        }
-
         System.out.println("boardWidth = " + boardWidth);
         curPosition = getMinX(minY, floorPoints);
         int jj = 0;
 
-        while(curPosition < getMaxX(minY, floorPoints)) {
+        while (curPosition < getMaxX(minY, floorPoints)) {
             jj++;
-            heigth = minWidth + jj*boardWidth*(maxWidth-minWidth)/maxLength;
+            heigth = minWidth + jj * boardWidth * (maxWidth - minWidth) / maxLength;
             boardsLength.add(heigth);
             curPosition = curPosition + boardWidth;
         }
 
         // выведем все длины досок, на которые нужно будет попилить для укладки
         int ii = 0; // счетчик досок
-        for(Float board: boardsLength) {
+        for (Float board : boardsLength) {
             ii++;
             System.out.println("Доска " + ii + ", L=" + board.floatValue());
         }
 
+        ArrayList<FloorPoint> opt = new ArrayList<>();
+        opt = calcOptimum(floorPoints);
     }
 
 
@@ -130,9 +117,7 @@ public class FloorShape {
 
     public static float getMaxX(float y, ArrayList<FloorPoint> fp) {
         float maxX = Float.MIN_VALUE;
-        //System.out.println("=====>");
         for (FloorPoint fp4 : fp) {
-            //System.out.println("=====> maxX=" + maxX);
             if (fp4.getY() == y && maxX < fp4.getX()) {
                 maxX = fp4.getX();
             }
@@ -143,9 +128,7 @@ public class FloorShape {
 
     public static float getMinY(float x, ArrayList<FloorPoint> fp) {
         float minY = Float.MAX_VALUE;
-        //System.out.println("=====>");
         for (FloorPoint fp4 : fp) {
-            //System.out.println("=====> minX=" + minX);
             if (fp4.getX() == x && minY > fp4.getY()) {
                 minY = fp4.getY();
             }
@@ -153,15 +136,10 @@ public class FloorShape {
         return minY;
     }
 
-
     public static float getMaxY(float x, ArrayList<FloorPoint> fp) {
-        //float maxY = Float.MIN_VALUE;
 
         float maxY = 0;
-        ;
-        //System.out.println("=====>");
         for (FloorPoint fp4 : fp) {
-            //System.out.println("=====> maxX=" + maxX);
             if ((fp4.getX() == x) && (maxY <= fp4.getY())) {
                 maxY = fp4.getY();
             }
@@ -169,5 +147,15 @@ public class FloorShape {
         return maxY;
     }
 
+
+    public static ArrayList calcOptimum(ArrayList<FloorPoint> fp) {
+        ArrayList<Float> razn = new ArrayList<>();
+        System.out.println("<== calcOptimum ==>");
+        for (FloorPoint fp2 : fp) {
+            System.out.println("calcOptimum:: x=" + fp2.getX() + "y=" + fp2.getY());
+            razn.add(fp2.getX() + fp2.getY());
+        }
+        return razn;
+    }
 
 }
