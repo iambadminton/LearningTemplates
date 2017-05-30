@@ -35,12 +35,12 @@ public class FloorPoint {
         float y = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите координату X:");
-        if(sc.hasNextFloat()) {
+        if (sc.hasNextFloat()) {
             this.x = sc.nextFloat();
 
         }
         System.out.println("Введите координату Y:");
-        if(sc.hasNextFloat()) {
+        if (sc.hasNextFloat()) {
             this.y = sc.nextFloat();
         }
         System.out.println("Вы ввели х=" + this.x + " y=" + this.y);

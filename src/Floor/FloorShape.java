@@ -23,10 +23,15 @@ public class FloorShape {
         float maxY = 0;
         float curPosition = 0;
         float heigth = 0;
+        int count = 0;
+
 
         FloorPoint fp;
-        ArrayList<FloorPoint> floorPoints = new ArrayList<FloorPoint>();
-        ArrayList<Float> boardsLength = new ArrayList<Float>();
+        ArrayList<FloorPoint> floorPoints = new ArrayList<FloorPoint>(); // точки, ограничивающие нашу фигуру
+        ArrayList<Float> boardsLength = new ArrayList<Float>(); // массив досок, необходимых для укладки
+        ArrayList<Float> possibleLength = new ArrayList<Float>(); // массив возможных нарезок
+        ArrayList<Float> pieces = new ArrayList<Float>(); // массив обрезков
+
         Scanner sc = new Scanner(System.in);
         while (yn.equalsIgnoreCase("y")) {
             i++;
@@ -42,6 +47,24 @@ public class FloorShape {
         System.out.println("Введите ширину доски:");
         if (sc.hasNextFloat()) {
             boardWidth = sc.nextFloat();
+        }
+
+
+// зададим возможные длины досок
+        yn = "y";
+        i = 0;
+        while (yn.equalsIgnoreCase("y")) {
+            i++;
+            //floorPoints.add(fp);
+            System.out.println("i=" + i + " yn=" + yn);
+            System.out.println("Введите возможную длину доски:");
+            if(sc.hasNextFloat()) {
+                possibleLength.add(sc.nextFloat());
+            }
+            System.out.println("Продолжить(y/n)?");
+            if (sc.hasNextLine()) {
+                yn = sc.next();
+            }
         }
 
 
@@ -71,6 +94,12 @@ public class FloorShape {
 
         }
 
+        System.out.println("Возможные длины досок:");
+        for(Float f: possibleLength) {
+            System.out.println(f);
+        }
+
+
         minWidth = getMaxY(minX, floorPoints) - getMinY(minX, floorPoints);
         maxLength = getMaxX(minY, floorPoints) - getMinX(minY, floorPoints);
         maxWidth = getMaxY(maxX, floorPoints) - getMinY(maxX, floorPoints);
@@ -92,14 +121,57 @@ public class FloorShape {
 
         // выведем все длины досок, на которые нужно будет попилить для укладки
         int ii = 0; // счетчик досок
+//        System.out.println("Размерность возможных длин:" + possibleLength.size());
         for (Float board : boardsLength) {
             ii++;
             System.out.println("Доска " + ii + ", L=" + board.floatValue());
+            pieces.add(possibleLength.get(0) - board);
         }
 
-        ArrayList<FloorPoint> opt = new ArrayList<>();
-        opt = calcOptimum(floorPoints);
+        System.out.println("Обрезки:");
+        ii = 0;
+        Float totalLength = new Float(0);
+        for(Float p: pieces) {
+            ii++;
+            System.out.println(ii +"-й:" + p);
+        }
+
+
+        System.out.println("Распределяем доски:");
+        ii = 0;
+        float piece = 0;
+        count = 0;
+        for(Float board:boardsLength) {
+            ii++;
+            System.out.println("шаг " + ii+ "-й: boardsLength.size()=" + boardsLength.size() );
+            /*for(int j=0; j<= pieces.size(); j++) {
+                if(pieces.get(j) >=  )
+            }*/
+            int kk=0;
+            while(kk<= boardsLength.size()-1) {
+                kk++;
+                System.out.println("kk=" + kk + " boardsLength.size()=" + boardsLength.size() + " boardsLength.get(kk)="
+                        + boardsLength.get(kk) + "  pieces.get(ii)=" + pieces.get(ii));
+                if(pieces.get(ii) >= boardsLength.get(kk)) {
+                    System.out.println("Доска " + board.floatValue() + " обрезок " + pieces.get(kk) + " для доски " + boardsLength.get(kk) );
+                    boardsLength.remove(kk);
+                    pieces.remove(ii);
+                    break;
+                }
+                count++;
+            }
+
+        }
+        System.out.println("Общее число заготовок = " + count);
+
+
+
+
+        /*ArrayList<FloorPoint> opt = new ArrayList<>();
+        opt = calcOptimum(floorPoints);*/
     }
+
+
 
 
     public static float getMinX(float y, ArrayList<FloorPoint> fp) {
@@ -150,9 +222,9 @@ public class FloorShape {
 
     public static ArrayList calcOptimum(ArrayList<FloorPoint> fp) {
         ArrayList<Float> razn = new ArrayList<>();
-        System.out.println("<== calcOptimum ==>");
+        //System.out.println("<== calcOptimum ==>");
         for (FloorPoint fp2 : fp) {
-            System.out.println("calcOptimum:: x=" + fp2.getX() + "y=" + fp2.getY());
+            //System.out.println("calcOptimum:: x=" + fp2.getX() + "y=" + fp2.getY());
             razn.add(fp2.getX() + fp2.getY());
         }
         return razn;
