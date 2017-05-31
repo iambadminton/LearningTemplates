@@ -138,30 +138,6 @@ public class FloorShape {
         }
 
 
-        /*
-        System.out.println("Распределяем доски:");
-        ii = 0;
-        float piece = 0;
-        count = 0;
-        for(Float board:boardsLength) {
-            ii++;
-            System.out.println("шаг " + ii+ "-й: boardsLength.size()=" + boardsLength.size() );
-            int kk=0;
-            while(kk<= boardsLength.size()-1) {
-                kk++;
-                System.out.println("kk=" + kk + " boardsLength.size()=" + boardsLength.size() + " boardsLength.get(kk)="
-                        + boardsLength.get(kk) + "  pieces.get(ii)=" + pieces.get(ii));
-                if(pieces.get(ii) >= boardsLength.get(kk)) {
-                    System.out.println("Доска " + board.floatValue() + " обрезок " + pieces.get(kk) + " для доски " + boardsLength.get(kk) );
-                    boardsLength.remove(kk);
-                    pieces.remove(ii);
-                    break;
-                }
-                count++;
-            }
-
-        }*/
-
         System.out.println("Распределяем доски:");
         int numBoard = 0;
         float piece = 0;
@@ -182,8 +158,8 @@ public class FloorShape {
                 //определим, можно ли приспособить обрезок в качестве доски
                 for (int kk = boardsLengthForCheck.size() - 1; kk > numBoard - 1 && curPiece > 0; kk--) {
 
-                    System.out.println("kk=" + kk);
-                    System.out.println("numBoard=" + numBoard + " curPiece=" + curPiece + " boardsLength.get(kk)=" + boardsLengthForCheck.get(kk));
+                    //System.out.println("kk=" + kk);
+                    //System.out.println("numBoard=" + numBoard + " curPiece=" + curPiece + " boardsLength.get(kk)=" + boardsLengthForCheck.get(kk));
                     if (boardsLengthForCheck.get(kk) <= curPiece && boardsLengthForCheck.get(kk) > 0) {
                         // нашли необходимую нарезку для обрезка
                         // включаем счетчик необходимых для минусовкии необходимых заготовок
@@ -203,6 +179,9 @@ public class FloorShape {
                         // удалим доску из массива необходимых
                         //boardsLengthForCheck.remove(kk);
                         boardsLengthForCheck.set(kk, new Float(0));
+                    }
+                    else {
+                        System.out.println("На доску " +numBoard + " потребуется целая заготовка");
                     }
                     System.out.println("-------------");
                 }
