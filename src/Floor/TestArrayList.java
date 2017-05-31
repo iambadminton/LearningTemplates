@@ -18,6 +18,7 @@ public class TestArrayList {
             System.out.println(ii);
             if(ii  == 2 *Math.ceil(ii/2)) {
                 System.out.println("ii=" + ii);
+                System.out.println("arr.size()=" + arr.size());
                 it.remove();
             }
         }

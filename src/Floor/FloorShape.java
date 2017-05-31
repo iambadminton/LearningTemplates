@@ -1,6 +1,7 @@
 package Floor;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -58,7 +59,7 @@ public class FloorShape {
             //floorPoints.add(fp);
             System.out.println("i=" + i + " yn=" + yn);
             System.out.println("Введите возможную длину доски:");
-            if(sc.hasNextFloat()) {
+            if (sc.hasNextFloat()) {
                 possibleLength.add(sc.nextFloat());
             }
             System.out.println("Продолжить(y/n)?");
@@ -95,7 +96,7 @@ public class FloorShape {
         }
 
         System.out.println("Возможные длины досок:");
-        for(Float f: possibleLength) {
+        for (Float f : possibleLength) {
             System.out.println(f);
         }
 
@@ -131,12 +132,13 @@ public class FloorShape {
         System.out.println("Обрезки:");
         ii = 0;
         Float totalLength = new Float(0);
-        for(Float p: pieces) {
+        for (Float p : pieces) {
             ii++;
-            System.out.println(ii +"-й:" + p);
+            System.out.println(ii + "-й:" + p);
         }
 
 
+        /*
         System.out.println("Распределяем доски:");
         ii = 0;
         float piece = 0;
@@ -144,9 +146,6 @@ public class FloorShape {
         for(Float board:boardsLength) {
             ii++;
             System.out.println("шаг " + ii+ "-й: boardsLength.size()=" + boardsLength.size() );
-            /*for(int j=0; j<= pieces.size(); j++) {
-                if(pieces.get(j) >=  )
-            }*/
             int kk=0;
             while(kk<= boardsLength.size()-1) {
                 kk++;
@@ -161,17 +160,56 @@ public class FloorShape {
                 count++;
             }
 
+        }*/
+
+        System.out.println("Распределяем доски:");
+        int numBoard = 0;
+        float piece = 0;
+        count = 0;
+        Float board;
+        ArrayList<Float> boardsLengthForCheck = new ArrayList<Float>(); //новый массив для проверок и модификаций
+        boardsLengthForCheck.addAll(boardsLength);
+        Iterator<Float> it = boardsLength.iterator();
+        while (it.hasNext()) {
+            board = it.next();
+
+            numBoard++;
+
+            Float curPiece = pieces.get(numBoard - 1);
+            System.out.println("numBoard=" + numBoard);
+
+
+                //определим, можно ли приспособить обрезок в качестве доски
+                for (int kk = boardsLengthForCheck.size() - 1; kk > numBoard - 1 && curPiece > 0; kk--) {
+
+                    System.out.println("kk=" + kk);
+                    System.out.println("numBoard=" + numBoard + " curPiece=" + curPiece + " boardsLength.get(kk)=" + boardsLengthForCheck.get(kk));
+                    if (boardsLengthForCheck.get(kk) <= curPiece && boardsLengthForCheck.get(kk) > 0) {
+                        // нашли необходимую нарезку для обрезка
+                        // включаем счетчик необходимых для минусовкии необходимых заготовок
+                        count++;
+                        System.out.println("Обрезок длиной " + curPiece + " от доски "
+                                + numBoard + " идет на доску " + (kk + 1) + ", ее длина " + boardsLengthForCheck.get(kk));
+
+                        // изменим длину рассматриваемого обрезка
+                        if (curPiece - boardsLengthForCheck.get(kk) <= 0) {
+                            //curPiece = new Float(pieces.get(numBoard) - boardsLengthForCheck.get(kk));
+                            break;
+                        } else {
+                            pieces.set(numBoard, pieces.get(numBoard) - boardsLengthForCheck.get(kk));
+                            curPiece = new Float(curPiece - boardsLengthForCheck.get(kk));
+                        }
+
+                        // удалим доску из массива необходимых
+                        //boardsLengthForCheck.remove(kk);
+                        boardsLengthForCheck.set(kk, new Float(0));
+                    }
+                    System.out.println("-------------");
+                }
+
         }
-        System.out.println("Общее число заготовок = " + count);
-
-
-
-
-        /*ArrayList<FloorPoint> opt = new ArrayList<>();
-        opt = calcOptimum(floorPoints);*/
+        System.out.println("При длине заготовки = " + possibleLength.get(0) + " необходимое число заготовок = " + (numBoard - count));
     }
-
-
 
 
     public static float getMinX(float y, ArrayList<FloorPoint> fp) {
