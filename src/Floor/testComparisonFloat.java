@@ -3,7 +3,7 @@ package Floor;
 /**
  * Created by a.shipulin on 31.05.17.
  */
-public class testFloat {
+public class testComparisonFloat {
     public static void main(String[] args) {
         Float a = new Float(600);
         Float b = new Float(20);

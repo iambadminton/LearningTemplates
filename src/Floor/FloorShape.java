@@ -184,10 +184,8 @@ public class FloorShape {
 
                     // удалим доску из массива необходимых
                     boardsLengthForCheck.set(kk, new Float(0));
-                    System.out.println("======= boardsLengthForCheck.set(" + kk + ", new Float(0));");
+                    //System.out.println("======= boardsLengthForCheck.set(" + kk + ", new Float(0));");
                 }
-
-                /*System.out.println("-------------");*/
             }
 
             if(pieceIsUseless == true && boardsLengthForCheck.get(numBoard - 1) != 0) {
@@ -246,9 +244,7 @@ public class FloorShape {
 
     public static ArrayList calcOptimum(ArrayList<FloorPoint> fp) {
         ArrayList<Float> razn = new ArrayList<>();
-        //System.out.println("<== calcOptimum ==>");
         for (FloorPoint fp2 : fp) {
-            //System.out.println("calcOptimum:: x=" + fp2.getX() + "y=" + fp2.getY());
             razn.add(fp2.getX() + fp2.getY());
         }
         return razn;
