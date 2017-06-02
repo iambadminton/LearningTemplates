@@ -1,7 +1,11 @@
 package AlgorithmsAndStructures;
 
 /**
- * Created by a.shipulin on 02.06.17.
+ Реализация перевода римских цифр в арабские
  */
 public class RomanNumeralToArabic {
+    public static void main(String[] args) {
+
+
+    }
 }
