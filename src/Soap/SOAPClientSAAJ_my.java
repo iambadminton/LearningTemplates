@@ -23,22 +23,6 @@ public class SOAPClientSAAJ_my {
             String url = "http://86.57.245.235/TimeTable/Service.asmx";
             SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
 
-            // 06.06.2017 -->
-            /*POST /TimeTable/Service.asmx HTTP/1.1
-            Host: 86.57.245.235
-            Content-Type: text/xml; charset=utf-8
-            Content-Length: length
-            SOAPAction: "http://webservices.belavia.by/GetAirportsList"
-
-                    <?xml version="1.0" encoding="utf-8"?>
-            <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-            <soap:Body>
-            <GetAirportsList xmlns="http://webservices.belavia.by/">
-            <Language>ru</Language>
-            </GetAirportsList>
-            </soap:Body>
-            </soap:Envelope>*/
-            // -->
             // Process the SOAP Response
             printSOAPResponse(soapResponse);
 

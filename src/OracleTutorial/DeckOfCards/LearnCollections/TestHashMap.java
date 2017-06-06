@@ -1,7 +1,6 @@
 package OracleTutorial.DeckOfCards.LearnCollections;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by a.shipulin on 06.06.17.
@@ -45,9 +44,40 @@ public class TestHashMap {
 
         System.out.println(hashMap.size());
 
-        for (Map.Entry<Dog, Integer> entry : hashMap.entrySet()) {
+        /*for (Map.Entry<Dog, Integer> entry : hashMap.entrySet()) {
             System.out.println(entry.getKey().toString() + " - " + entry.getValue());
+        }*/
+        System.out.println("hashMap=" + hashMap);
+
+
+        // упорядочивание
+        /*List list = new ArrayList(Map.entrySet());
+        Collections.sort(list, new Comparator() {
+            @Override
+            public int compare(Entry e1, Entry e2) {
+                return e1.getKey().compareTo(e2.getKey());
+
+            }
+        });*/
+
+
+        if(0>= Float.NaN) {
+            System.out.println("0>= Float.NaN");
         }
+        if(0<= Float.NaN) {
+            System.out.println("0<= Float.NaN");
+        }
+        if(0 == Float.NaN) {
+            System.out.println("0 == Float.NaN");
+        }
+        if(0 != Float.NaN) {
+            System.out.println("0 != Float.NaN");
+        }
+
+
+
+
+
 
     }
 }
