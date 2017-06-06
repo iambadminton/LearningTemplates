@@ -15,8 +15,15 @@ public class LinkedListDescending {
         list.add("c");
         list.add("d");
 
-        Iterator itr = new
-        list.descendingIterator();
+        Iterator<String> itr = list.descendingIterator();
+        //Iterator<String> itr = list.iterator();
+        String str;
+        while(itr.hasNext()) {
+            str = itr.next();
+            System.out.println(str);
+        }
+
+
         System.out.println("list=" + list);
     }
 }
