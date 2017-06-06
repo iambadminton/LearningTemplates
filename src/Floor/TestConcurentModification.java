@@ -2,7 +2,6 @@ package Floor;
 
 import org.junit.Test;
 
-import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,7 +10,8 @@ import java.util.Map;
  * Created by a.shipulin on 31.05.17.
  */
 public class TestConcurentModification {
-    @Test(expected = ConcurrentModificationException.class)
+    //@Test(expected = ConcurrentModificationException.class)
+    @Test(expected = IndexOutOfBoundsException.class)
     public static void main(String[] args) {
         Map<String,String> map = new HashMap<String,String>();
         Iterator it = map.entrySet().iterator();
@@ -20,5 +20,6 @@ public class TestConcurentModification {
            //map.remove(item.getKey());
             it.remove();
         }
+
     }
 }

@@ -1,0 +1,110 @@
+package Soap;
+
+/**
+ * Created by a.shipulin on 06.06.17.
+ */
+
+import javax.xml.soap.*;
+import javax.xml.transform.*;
+import javax.xml.transform.stream.*;
+
+public class SOAPClientSAAJ_my {
+    /**
+     * Starting point for the SAAJ - SOAP Client Testing
+     */
+    public static void main(String args[]) {
+        try {
+            // Create SOAP Connection
+            SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
+            SOAPConnection soapConnection = soapConnectionFactory.createConnection();
+
+            // Send SOAP Message to SOAP Server
+            //String url = "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx";
+            String url = "http://86.57.245.235/TimeTable/Service.asmx";
+            SOAPMessage soapResponse = soapConnection.call(createSOAPRequest(), url);
+
+            // 06.06.2017 -->
+            /*POST /TimeTable/Service.asmx HTTP/1.1
+            Host: 86.57.245.235
+            Content-Type: text/xml; charset=utf-8
+            Content-Length: length
+            SOAPAction: "http://webservices.belavia.by/GetAirportsList"
+
+                    <?xml version="1.0" encoding="utf-8"?>
+            <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+            <soap:Body>
+            <GetAirportsList xmlns="http://webservices.belavia.by/">
+            <Language>ru</Language>
+            </GetAirportsList>
+            </soap:Body>
+            </soap:Envelope>*/
+            // -->
+            // Process the SOAP Response
+            printSOAPResponse(soapResponse);
+
+            soapConnection.close();
+        } catch (Exception e) {
+            System.err.println("Error occurred while sending SOAP Request to Server");
+            e.printStackTrace();
+        }
+    }
+
+    private static SOAPMessage createSOAPRequest() throws Exception {
+        MessageFactory messageFactory = MessageFactory.newInstance();
+        SOAPMessage soapMessage = messageFactory.createMessage();
+        SOAPPart soapPart = soapMessage.getSOAPPart();
+
+        String serverURI = "http://webservices.belavia.by/";
+
+        // SOAP Envelope
+        SOAPEnvelope envelope = soapPart.getEnvelope();
+        envelope.addNamespaceDeclaration("example", serverURI);
+
+        /*
+        Constructed SOAP Request Message:
+        <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:example="http://ws.cdyne.com/">
+            <SOAP-ENV:Header/>
+            <SOAP-ENV:Body>
+                <example:VerifyEmail>
+                    <example:email>mutantninja@gmail.com</example:email>
+                    <example:LicenseKey>123</example:LicenseKey>
+                </example:VerifyEmail>
+            </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+         */
+
+        // SOAP Body
+        SOAPBody soapBody = envelope.getBody();
+        SOAPElement soapBodyElem = soapBody.addChildElement("Language", "example");
+        soapBody.addTextNode("RU");
+        //SOAPElement soapBodyElem1 = soapBodyElem.addChildElement("email", "example");
+        //soapBodyElem1.addTextNode("mutantninja@gmail.com");
+        //SOAPElement soapBodyElem2 = soapBodyElem.addChildElement("LicenseKey", "example");
+        //soapBodyElem2.addTextNode("123");
+
+        MimeHeaders headers = soapMessage.getMimeHeaders();
+        headers.addHeader("SOAPAction", serverURI + "GetAirportsList");
+
+        soapMessage.saveChanges();
+
+        /* Print the request message */
+        System.out.print("Request SOAP Message = ");
+        soapMessage.writeTo(System.out);
+        System.out.println();
+
+        return soapMessage;
+    }
+
+    /**
+     * Method used to print the SOAP Response
+     */
+    private static void printSOAPResponse(SOAPMessage soapResponse) throws Exception {
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        Source sourceContent = soapResponse.getSOAPPart().getContent();
+        System.out.print("\nResponse SOAP Message = ");
+        StreamResult result = new StreamResult(System.out);
+        transformer.transform(sourceContent, result);
+    }
+
+}
