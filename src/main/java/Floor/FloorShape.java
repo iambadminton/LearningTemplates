@@ -243,7 +243,7 @@ public class FloorShape {
     }
 
     public static ArrayList calcOptimum(ArrayList<FloorPoint> fp) {
-        ArrayList<Float> razn = new ArrayList<>();
+        ArrayList<Float> razn = new ArrayList<Float>();
         for (FloorPoint fp2 : fp) {
             razn.add(fp2.getX() + fp2.getY());
         }
