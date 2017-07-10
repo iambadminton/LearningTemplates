@@ -1,16 +1,14 @@
 package OracleTutorial.DeckOfCards.LearnCollections;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.time.*;
-import java.util.LinkedList;
 
 /**
  * Created by a.shipulin on 21.11.16.
  */
 public class ArrayListLearn {
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> list = new ArrayList<Integer>();
         /*LinkedList<Integer> list = new LinkedList<>();*/
         LocalDateTime begin = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.now();
