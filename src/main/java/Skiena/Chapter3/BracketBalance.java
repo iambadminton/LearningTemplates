@@ -27,7 +27,7 @@ public class BracketBalance {
                     return false;
                 }
             }
-            System.out.println(count);
+            /*System.out.println(count);*/
         }
         if (count == 0) return true;
         else return false;
