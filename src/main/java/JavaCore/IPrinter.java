@@ -1,4 +1,4 @@
-package JavaBasic;
+package JavaCore;
 
 /**
  * Created by a.shipulin on 24.11.16.

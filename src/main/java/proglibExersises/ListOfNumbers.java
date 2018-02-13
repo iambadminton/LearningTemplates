@@ -1,4 +1,4 @@
-package JavaTutorial.ExceptionTuturial;
+package proglibExersises;
 
 /**
  задание с оф.сайта JavaTutorial: https://docs.oracle.com/javase/tutorial/essential/exceptions/examples/ListOfNumbers.java

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ArrayListLearn {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<Integer>();
-        /*LinkedList<Integer> list = new LinkedList<>();*/
+        /*LinkedListProgLibIO<Integer> list = new LinkedListProgLibIO<>();*/
         LocalDateTime begin = LocalDateTime.now();
         LocalDateTime end = LocalDateTime.now();
 
