@@ -38,6 +38,7 @@ public class excercise1 {
 
 
     public void sort() {
+        int i = 0;
         /*List list = new ArrayList<>(this.players.entrySet());
         for (Map.Entry<String, Integer> entry: this.players.entrySet()) {
             System.out.println(entry.toString());
@@ -67,21 +68,20 @@ public class excercise1 {
                 return (o1.getValue()).compareTo(o2.getValue());
             }
         });*/
-        /* // java 7
-        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return (o1.getValue()).compareTo(o2.getValue());
-            }
-        });
-        */
-        /*Map<String, Integer> result = new LinkedHashMap<>();
-        for (Map.Entry<String, Integer> entry : list) {
-            result.put(entry.getKey(), entry.getValue());
-        }*/
+
         ValueComparator bvc = new ValueComparator(this.players);
         TreeMap<String, Integer> sorted_map = new TreeMap<String, Integer>(bvc);
+        sorted_map.putAll(this.players);
         System.out.println("sorted map: " +  sorted_map);
+        Set set3 = sorted_map.entrySet();
+        Iterator iterator3 = set3.iterator();
+        while(iterator3.hasNext()) {
+            i++;
+            System.out.println("iterator3.next()=" + iterator3.next());
+            /*if(i<=6 ) {
+                this.team1.put(set3.)
+            }*/
+        }
 
     }
 
@@ -96,9 +96,9 @@ public class excercise1 {
         @Override
         public int compare(String o1, String o2) {
             if (base.get(o1) >= base.get(o2)) {
-                return -1;
-            } else {
                 return 1;
+            } else {
+                return -    1;
             }
 
         }
