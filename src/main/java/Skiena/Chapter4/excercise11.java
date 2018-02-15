@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Created by a.shipulin on 14.02.18.
+ * Вариант 2 решения задачи:
  * Задача: разделить 2n игроков на 2 команды по n игроков самым несправедливым способом, при условии, что у каждого игрока
  * есть рейтинг, т.е. создать самое большое неравенство между командами.
  * <p>
@@ -15,12 +16,12 @@ import java.util.*;
     Integer Rating;
 }*/
 
-public class excercise1 {
+public class excercise11 {
     HashMap<String, Integer> players;
     HashMap<String, Integer> team1;
     HashMap<String, Integer> team2;
 
-    public excercise1() {
+    public excercise11() {
         this.players = new HashMap<String, Integer>();
         players.put(new String("Анатолий"), 5);
         players.put(new String("Сергей"), 10);
@@ -38,13 +39,9 @@ public class excercise1 {
 
 
     public void sort() {
-        int i = 0;
+
         Object obj;
-        /*List list = new ArrayList<>(this.players.entrySet());
-        for (Map.Entry<String, Integer> entry: this.players.entrySet()) {
-            System.out.println(entry.toString());
-            
-        }*/
+
 
         //SortedMap<String, Integer> sortedPlayers = (SortedMap<String, Integer>) this.players;
         Set set = players.entrySet();
@@ -61,39 +58,19 @@ public class excercise1 {
             System.out.println(me2.getKey() + ":" + me2.getValue());
         }
 
-        // сортировка по значению
-        /*List<Map<String, Integer>> list = new LinkedList<String, Integer>(players.entrySet());*/
-        /*Collections.sort(list, new Comparator<Map<String, Integer>>() {
-            @Override
-            public int compare(Map<String, Integer> o1, Map<String, Integer> o2) {
-                return (o1.getValue()).compareTo(o2.getValue());
-            }
-        });*/
 
         ValueComparator bvc = new ValueComparator(this.players);
         TreeMap<String, Integer> sorted_map = new TreeMap<String, Integer>(bvc);
         sorted_map.putAll(this.players);
         System.out.println("sorted map: " + sorted_map);
-        Set set3 = sorted_map.entrySet();
-        Iterator iterator3 = set3.iterator();
-        System.out.println("111===========");
-        System.out.println(set3.toString());
-        System.out.println("set3:===========");
-        while (iterator3.hasNext()) {
 
-            i++;
-            obj = iterator3.next();
 
-            /*System.out.println(iterator3.next());*/
-            System.out.println("iterator3.next():" + obj.toString().split("=")[0] + "->" + obj.toString().split("=")[1]);
 
-            if (i <= 6) {
-                this.team1.put(obj.toString().split("=")[0], Integer.parseInt(obj.toString().split("=")[1]));
-                //System.out.println(iterator3.next().toString().split("=")[1]);
-            } else {
-                this.team2.put(iterator3.next().toString().split("=")[0], Integer.parseInt(iterator3.next().toString().split("=")[1]));
+        /*for(int i = 0; i < sorted_map.size(); i++) {
+            if(i <= 6) {
+
             }
-        }
+        }*/
         System.out.println("team1=========");
         System.out.println(team1);
 
@@ -120,7 +97,9 @@ public class excercise1 {
 
 
     public static void main(String[] args) {
-        excercise1 ex = new excercise1();
+        excercise11 ex = new excercise11();
         ex.sort();
     }
 }
+
+
