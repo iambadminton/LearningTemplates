@@ -28,4 +28,15 @@ public class Vertex {
     public void setVisited(boolean isVisited) {
         this.isVisited = isVisited;
     }
+
+    @Override
+    public String toString() {
+        if(!this.equals(null)) {
+            return "Vertex{" +
+                    "label='" + label + '\'' +
+                    ", isVisited=" + isVisited +
+                    '}';
+        }
+        else return null;
+    }
 }

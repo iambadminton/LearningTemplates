@@ -15,14 +15,13 @@ public class Graph {
     public JQueue queue;
 
     public Graph() {
+        queue = new JQueue(100);
+        matrix = new int[VERTEX_MAX][VERTEX_MAX];
         // перед началом работы заполняем матрицу смежности нулями
         for (int i = 0; i < VERTEX_MAX; i++) {
-            for (int j = 0; j < VERTEX_MAX; j++) {
-                matrix[i][j] = 0;
-            }
+            for (int j = 0; j < VERTEX_MAX; j++) matrix[i][j] = 0;
         }
-
-
+        vertexList = new Vertex[VERTEX_MAX];
     }
 
     public void addVertex(String label) {
@@ -34,7 +33,8 @@ public class Graph {
         matrix[end][begin] = 0;
     }
 
-    /*void bfs(int v) {
+    // обход в ширину
+    void bfs(int v) {
         vertexList[v].isVisited = true;
         queue.insert(v);
         int vertex;
@@ -51,21 +51,46 @@ public class Graph {
                 //вывод вершины на экран
                 System.out.println(vertexList[vertex].getLabel());
             }
-
         }
 
         //сброс флагов
         for (int j = 0; j < vertexCount; j++) {
             vertexList[j].isVisited = false;
         }
-
-
-    }*/
+    }
 
     int getSuccessor(int v) {
         for (int j = 0; j < vertexCount; j++)
             if (matrix[v][j] == 1 && vertexList[j].isVisited == false)
                 return j; //возвращает первую найденную вершину
         return -1; //таких вершин нет
+    }
+
+    // мои доработки:
+    public void showVertexList() {
+        for (int k = 0; k < this.vertexList.length; k++) {
+            if (vertexList[k] != null) {
+                System.out.println("vertexList[" + k + "]=" + vertexList[k].toString());
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Graph graph = new Graph();
+
+        graph.addVertex(new String("A"));
+        graph.addVertex(new String("B"));
+        graph.addVertex(new String("C"));
+        graph.addVertex(new String("D"));
+        graph.addVertex(new String("E"));
+        graph.addEdge(1, 2);
+        graph.addEdge(1, 4);
+        graph.addEdge(4, 3);
+        graph.addEdge(4, 5);
+
+
+        graph.showVertexList();
+
+        graph.bfs(0);
     }
 }
