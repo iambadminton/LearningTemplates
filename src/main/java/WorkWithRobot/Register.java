@@ -7,11 +7,11 @@ import java.awt.event.KeyEvent;
 /**
  * Created by a.shipulin on 21.02.18.
  */
-public class TestClick {
+public class Register {
 
 
     public static void main(String[] args) {
-        TestClick click = new TestClick();
+        Register click = new Register();
         try {
             /*click.click(2646, 515);*/
             click.click(134, 1064); // будем запускать из панели быстрого запуска
@@ -25,7 +25,7 @@ public class TestClick {
         int TIME_CONST = 10000;
         int DELAY_BEFORE = (int) (Math.random() * 10000);
         System.out.println("DELAY_BEFORE=" + DELAY_BEFORE);
-        ExampleHome example;
+
 
         Robot bot = new Robot();
         Thread.sleep(DELAY_BEFORE);
@@ -69,10 +69,8 @@ public class TestClick {
         bot.mouseRelease(InputEvent.BUTTON1_MASK);
 
 
-        // ============
-        example = new ExampleHome();
-        Thread.sleep(20000);
-        example.sendReport("TEST::TEST");
+
+
 
 
 

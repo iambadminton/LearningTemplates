@@ -16,6 +16,11 @@ import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class ExampleHome extends TelegramLongPollingBot{
     public static void main(String[] args) {
         ApiContextInitializer.init(); // Инициализируем апи
@@ -35,20 +40,33 @@ public class ExampleHome extends TelegramLongPollingBot{
     // <==
 
 
-    public void mySend() {
-        // -->
-        /*SendMessage s = new SendMessage();
-        s.setText("test!!!");
-        try { //Чтобы не крашнулась программа при вылете Exception
-            sendMessage(s);
-        } catch (TelegramApiException e){
-            e.printStackTrace();
-        }*/
-        SendMessage s = new SendMessage();
+    public void sendReport(String txt) {
+        // https://api.telegram.org/bot487888252:AAHZyw0Nimz5njzY-7I7O78wuuaGjJDAojs/sendMessage?chat_id=203487491&text=%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82
+        String TELEGRAM_URL = new String("https://api.telegram.org");
+        String TELEGRAM_ACTION = new String("/sendMessage");
+        String PARAMETER1 = "chat_id=";
+        String PARAMETER2 = "text=";
 
-        //s.setChatId(msg.getChatId()); // Боту может писать не один человек, и поэтому чтобы отправить сообщение, грубо говоря нужно узнать куда его отправлять
-        s.setText("test");
-        // <--
+        try {
+            URLConnection connection = new URL(TELEGRAM_URL + "/bot" + getBotToken()  + TELEGRAM_ACTION + "?" + PARAMETER1 + "203487491&" + PARAMETER2 + txt).openConnection();
+
+            InputStream is = connection.getInputStream();
+            InputStreamReader reader = new InputStreamReader(is);
+            char[] buffer = new char[256];
+            int rc;
+
+            StringBuilder sb = new StringBuilder();
+            while ((rc = reader.read(buffer)) != -1) {
+                sb.append(buffer, 0, rc);
+
+            }
+            reader.close();
+
+            System.out.println(sb);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
