@@ -18,7 +18,8 @@ public class SecretDetective {
                 }
                 for (int k = 0; k < res.length(); k++) {
                     // смотрим, есть ли в списке уже такая буква
-                    if (res.charAt(k) == triplets[i][j]) {
+                    System.out.println("########## res.charAt(k)=" + res.charAt(k) + " triplets[i][j]=" + triplets[i][j]);
+                    if (res.charAt(k)==triplets[i][j]) {
                         isExist = true;
                     } else {
                         isExist = false;
@@ -34,46 +35,55 @@ public class SecretDetective {
                     char LetterAfter;
                     char LetterBefore;
                     StringBuffer newRes = new StringBuffer("");
-                    if(i==0) {
+                    if (i == 0) {
                         res.append(triplets[i][j]);
                         continue;
                     }
                     // вставляем в res в соответствии с заданным правилом
-                    if(j==0 || j == 1) {
-                        LetterBefore = triplets[i][j+1];
+                    if (j == 0 || j == 1) {
+                        LetterBefore = triplets[i][j + 1];
                         positionLetterBefore = 0;
                         System.out.println("LetterBefore=" + LetterBefore);
-                        while(positionLetterBefore < res.length()) {
+                        System.out.println("res.length= " + res.length() + "    res=" + res);
+                        for(positionLetterBefore=0;positionLetterBefore < res.length();) {
                             System.out.println("while1");
-                            if(res.charAt(positionLetterBefore) != LetterBefore) {
+                            if (res.charAt(positionLetterBefore) != LetterBefore) {
                                 positionLetterBefore++;
+                            } else {
+                                break;
                             }
                         }
                         System.out.println("PositionLetterBefore=" + positionLetterBefore);
+
                         newRes.append(res.substring(0, positionLetterBefore));
                         newRes.append(triplets[i][j]);
                         newRes.append(res.substring(positionLetterBefore, res.length()));
                         res = newRes;
-                    }
-
-                    else {
-                        LetterAfter = triplets[i][j];
+                    } else {
+                        LetterAfter = triplets[i][j - 1];
                         System.out.println("LetterAfter=" + LetterAfter);
-
-                        while(positionLetterAfter < res.length()) {
-                            System.out.println("while2");
-                            if(res.charAt(positionLetterBefore) != LetterAfter) {
+                        System.out.println("res.length= " + res.length() + "    res=" + res);
+                        positionLetterAfter = 0;
+                        while (positionLetterAfter < res.length()) {
+                            System.out.println("while2 :: positionLetterAfter=" + positionLetterAfter);
+                            if (res.charAt(positionLetterAfter) != LetterAfter) {
                                 positionLetterAfter++;
                             }
+                            else {
+                                positionLetterAfter++;
+                                break;
+                            }
+
                         }
-                        newRes.append(res.substring(0, positionLetterBefore));
+                        System.out.println("********** res.substring(0, positionLetterAfter) = " + res.substring(0, positionLetterAfter) );
+                        newRes.append(res.substring(0, positionLetterAfter));
                         newRes.append(triplets[i][j]);
-                        newRes.append(res.substring(positionLetterBefore, res.length()));
+                        newRes.append(res.substring(positionLetterAfter, res.length()));
                         res = newRes;
                     }
                 }
 
-                System.out.println(" ==> res = " + res);
+                System.out.println(" ========> res = " + res);
             }
         }
 
