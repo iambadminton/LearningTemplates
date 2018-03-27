@@ -18,14 +18,17 @@ public class SecretDetective {
                 }
                 for (int k = 0; k < res.length(); k++) {
                     // смотрим, есть ли в списке уже такая буква
-                    System.out.println("########## res.charAt(k)=" + res.charAt(k) + " triplets[i][j]=" + triplets[i][j]);
+
                     if (res.charAt(k)==triplets[i][j]) {
                         isExist = true;
+                        break;
                     } else {
                         isExist = false;
                         ii = i;
                         jj = j;
                     }
+
+                    System.out.println("########## res.charAt(k)=" + res.charAt(k) + " triplets[i][j]=" + triplets[i][j] + " isExist=" + isExist);
                 }
 
                 System.out.println("==> " + triplets[i][j] + " isExist=" + isExist);
@@ -56,8 +59,11 @@ public class SecretDetective {
                         System.out.println("PositionLetterBefore=" + positionLetterBefore);
 
                         newRes.append(res.substring(0, positionLetterBefore));
+                        System.out.println("--- newRes=" + newRes);
                         newRes.append(triplets[i][j]);
+                        System.out.println("--- newRes=" + newRes);
                         newRes.append(res.substring(positionLetterBefore, res.length()));
+                        System.out.println("--- newRes=" + newRes);
                         res = newRes;
                     } else {
                         LetterAfter = triplets[i][j - 1];
@@ -82,6 +88,12 @@ public class SecretDetective {
                         res = newRes;
                     }
                 }
+
+                if(isExist == true) {
+                    // проверяем, на своем ли месте стоит уже существующая буква в соответствии с текущим правилом
+
+                }
+
 
                 System.out.println(" ========> res = " + res);
             }
