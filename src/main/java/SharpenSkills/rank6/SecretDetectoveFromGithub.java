@@ -56,7 +56,7 @@ public class SecretDetectoveFromGithub {
 
     public static void main(String[] args) {
         SecretDetectoveFromGithub detective = new SecretDetectoveFromGithub();
-        char[][] triplets = {
+        /*char[][] triplets = {
                 {'t', 'u', 'p'},
                 {'w', 'h', 'i'},
                 {'t', 's', 'u'},
@@ -64,6 +64,15 @@ public class SecretDetectoveFromGithub {
                 {'h', 'a', 'p'},
                 {'t', 'i', 's'},
                 {'w', 'h', 's'}
+        };*/
+        char[][] triplets = {
+                {'y', 'i', 'g'},
+                {'a', 'r', 'g'},
+                {'u', 'h', 'n'},
+                {'r', 'h', 'i'},
+                {'e', 'o', 'u'},
+                {'u', 'n', 'g'},
+                {'o', 'n', 'g'}
         };
         System.out.println(detective.recoverSecret(triplets));
     }
