@@ -24,13 +24,18 @@ import java.util.Arrays;
 public class PerfectPower {
     public static int[] isPerfectPower(int n) {
         int k = 2;
-        double m = 0d;
+        double m = -1;
         boolean isPerfectP = false;
-        while (isPerfectP == false && m <= n) {
+        if(n==0) {
+            return null;
+        }
+        while (isPerfectP == false && m <= n && m!= 0 && k!= n) {
             m = Math.log10(n) / Math.log10(k);
-            if (m % 1 == 0) {
+
+            System.out.println(m + "  k=" + k);
+            if ((m % 1 == 0 && m!= 0 && m!= 1) || (Math.pow(k, Math.round(m)) == n && m!=0)) {
                 isPerfectP = true;
-                return new int[]{k, (int) m};
+                return new int[]{k, (int)Math.round(m)};
             }
             k++;
 
@@ -43,6 +48,6 @@ public class PerfectPower {
 
     public static void main(String[] args) {
         PerfectPower power = new PerfectPower();
-        System.out.println(Arrays.toString(power.isPerfectPower(8)));
+        System.out.println(Arrays.toString(power.isPerfectPower(3124)));
     }
 }
