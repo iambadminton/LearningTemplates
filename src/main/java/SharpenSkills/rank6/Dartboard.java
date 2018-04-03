@@ -1,6 +1,6 @@
 package SharpenSkills.rank6;
 
-/**
+/** RESOLVED!
  * https://www.codewars.com/kata/5870db16056584eab0000006/train/java
  * Create your own mechanical dartboard that gives back your score based on the coordinates of your dart.
  * <p>
@@ -52,6 +52,9 @@ public class Dartboard {
             teta = 360 - Math.abs(teta);
         }
         sectorIndex = (int) Math.round((teta - (teta + 9) % 18) / 18);
+        if(sectorIndex==0) {
+            sectorIndex = 20;
+        }
 
         System.out.println("x=" + x + " y=" + y + " teta=" + teta + " sectorIndex=" + sectorIndex);
         System.out.println("teta=" + teta + " sectorIndex=" + sectorIndex + " value=" + points[sectorIndex]);
