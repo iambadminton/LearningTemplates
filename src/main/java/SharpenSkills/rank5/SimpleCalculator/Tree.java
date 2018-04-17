@@ -4,7 +4,7 @@ package SharpenSkills.rank5.SimpleCalculator;
  * Created by a.shipulin on 11.04.18.
  */
 public class Tree {
-    public Node root;
+    /*public Node root;
 
     public Tree() {
         this.root = null;
@@ -20,6 +20,6 @@ public class Tree {
             Node current = root;
 
         }
-    }
+    }*/
 
 }
