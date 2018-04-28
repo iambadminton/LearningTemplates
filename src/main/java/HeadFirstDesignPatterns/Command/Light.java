@@ -4,18 +4,33 @@ package HeadFirstDesignPatterns.Command;
  * Created by a.shipulin on 18.04.18.
  */
 public class Light {
-    String location = "";
+    String location;
+    int level;
 
     public Light(String location) {
         this.location = location;
     }
 
     public void on() {
-        System.out.println(location + " light is on");
+        level = 100;
+        System.out.println("Light is on");
     }
 
     public void off() {
-        System.out.println(location + " light is off");
+        level = 0;
+        System.out.println("Light is off");
+    }
+
+    public void dim(int level) {
+        this.level = level;
+        if (level == 0) {
+            off();
+        } else {
+            System.out.println("Light is dimmed to " + level + "%");
+        }
+    }
+
+    public int getLevel() {
+        return level;
     }
 }
-

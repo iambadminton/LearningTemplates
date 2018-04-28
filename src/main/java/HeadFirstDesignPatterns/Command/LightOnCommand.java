@@ -3,19 +3,19 @@ package HeadFirstDesignPatterns.Command;
 /**
  * Created by a.shipulin on 18.04.18.
  */
-public class LightOnCommand  implements  Command {
+public class LightOnCommand implements Command {
     Light light;
-
+    int level;
     public LightOnCommand(Light light) {
         this.light = light;
     }
 
-    public void lightOff() {
-        light.off();
+    public void execute() {
+        level = light.getLevel();
+        light.on();
     }
 
-    @Override
-    public void execute() {
-        light.on();
+    public void undo() {
+        light.dim(level);
     }
 }

@@ -1,19 +1,19 @@
 package HeadFirstDesignPatterns.Command;
 
 /**
- * Created by a.shipulin on 18.04.18.
+ * Created by a.shipulin on 27.04.18.
  */
-public class CeilingFanOffCommand implements Command {
+public class CeilingFanHighCommand implements Command {
     CeilingFan ceilingFan;
     int prevSpeed;
 
-    public CeilingFanOffCommand(CeilingFan ceilingFan) {
+    public CeilingFanHighCommand(CeilingFan ceilingFan) {
         this.ceilingFan = ceilingFan;
     }
 
     public void execute() {
         prevSpeed = ceilingFan.getSpeed();
-        ceilingFan.off();
+        ceilingFan.high();
     }
 
     public void undo() {
@@ -28,4 +28,3 @@ public class CeilingFanOffCommand implements Command {
         }
     }
 }
-
