@@ -11,6 +11,7 @@ import javax.mail.internet.MimeMessage;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -31,14 +32,19 @@ public class Main {
 
         System.out.println(mailSession.getProperties());
         MimeMessage message = new MimeMessage(mailSession);
+
         message.setFrom(new InternetAddress("shsanya@yandex.ru"));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress("shsanya@inbox.ru"));
         message.setSubject("hello");
-        message.setText("Hi, this is my test message from java");
+        File html = new File("C:\\SpringProjects\\LearningTemplates\\src\\main\\java\\LearnJavaMail\\1.html");
+        //message.setText("Hi, this is my test message from java");
+        //message.setText("<html> <title>first html mail</title><body><font color=\"aqua\">This is first html mail</font> </body> </html>");
+        message.setContent("<html> <title>first html mail</title><body><font color=\"aqua\">This is first html mail</font> </body> </html>", "text/html; charset=utf-8");
         Transport tr = mailSession.getTransport();
         System.out.println(tr.getURLName());
         tr.connect("shsanya", "piramida");
         tr.sendMessage(message, message.getAllRecipients());
+
         tr.close();
 
     }
