@@ -46,7 +46,7 @@ public class MailSender {
         message.setFrom(new InternetAddress("shsanya@yandex.ru"));
         message.addRecipient(Message.RecipientType.TO, new InternetAddress("shsanya@inbox.ru"));
         message.setSubject("hello");
-        File html = new File("C:\\SpringProjects\\LearningTemplates\\src\\main\\java\\LearnJavaMail\\1.html");
+        //File html = new File("C:\\SpringProjects\\LearningTemplates\\src\\main\\java\\LearnJavaMail\\1.html");
         //message.setText("Hi, this is my test message from java");
 
         message.setContent("<html> <title>first html mail</title><body><font color=\"aqua\">This is first html mail</font> </body> </html>", "text/html; charset=utf-8");

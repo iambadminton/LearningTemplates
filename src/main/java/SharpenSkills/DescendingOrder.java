@@ -19,5 +19,7 @@ public class DescendingOrder {
     public static void main(String[] args) {
         DescendingOrder dor = new DescendingOrder();
         System.out.println(dor.sortDesc(78291));
+
+
     }
 }
