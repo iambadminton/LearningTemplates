@@ -32,7 +32,7 @@ public class MiniMiniMusicApp {
 
             player.setSequence(seq);
             player.start();
-            //player.stop();
+            player.stop();
 
 
         }

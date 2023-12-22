@@ -1,0 +1,12 @@
+
+N	java:S106"9Replace this use of System.out or System.err by a logger.(’Åµ¯
+Q
+java:S1854";Remove this useless assignment to local variable "curLine".(¯Ý×Ï
+[
+java:S1854"@Remove this useless assignment to local variable "triangleLine".(®‰¡¢ùÿÿÿÿ
+L
+java:S1481"1Remove this unused "triangleLine" local variable.(®‰¡¢ùÿÿÿÿ
+B
+java:S1481",Remove this unused "curLine" local variable.(¯Ý×Ï
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¯Ý×Ï

@@ -1,6 +1,7 @@
 package LearnJavaMail;
 
-import jdk.internal.org.xml.sax.SAXException;
+//import jdk.internal.org.xml.sax.SAXException;
+import org.xml.sax.SAXException;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;

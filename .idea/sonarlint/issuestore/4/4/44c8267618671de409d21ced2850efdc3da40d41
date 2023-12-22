@@ -1,0 +1,87 @@
+
+V	java:S125"<This block of commented-out lines of code should be removed.(êíßéúÿÿÿÿ
+j	java:S116"PRename this field "TITLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê›ªœùÿÿÿÿ
+o	java:S116"URename this field "BLOCK_SIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óéµÔúÿÿÿÿ
+o	java:S116"URename this field "ARC_RADIUS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş¦Ï­øÿÿÿÿ
+p	java:S116"VRename this field "FIELD_WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ı‹Ôıÿÿÿÿ
+l	java:S116"WRename this field "FIELD_HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ÌÔ„
+s	java:S116"YRename this field "START_LOCATION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ŸÄûÿÿÿÿ
+m	java:S116"SRename this field "FIELD_DX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İµÓ†ûÿÿÿÿ
+h	java:S116"SRename this field "FIELD_DY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃøÌ×
+i	java:S116"ORename this field "LEFT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…·å¬ûÿÿÿÿ
+g	java:S116"MRename this field "UP" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö½€Ïüÿÿÿÿ
+j	java:S116"PRename this field "RIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÕ·úÿÿÿÿ
+d	java:S116"ORename this field "DOWN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã­óú
+j	java:S116"URename this field "SHOW_DELAY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¼Ã‰
+f	java:S116"QRename this field "SHAPES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÆ…Ó
+f	java:S116)"QRename this field "SCORES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÍó
+r	java:S1161"XRename this field "GAME_OVER_MSG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û‚¢¤øÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(óéµÔúÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(ş¦Ï­øÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(·ı‹Ôıÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(€ÌÔ„
+<
+java:S1170"!Make this final field static too.(»ŸÄûÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(İµÓ†ûÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(ÃøÌ×
+<
+java:S1170"!Make this final field static too.(…·å¬ûÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(ö½€Ïüÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(âÕ·úÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(ã­óú
+7
+java:S1170"!Make this final field static too.(‘¼Ã‰
+œ
+java:S1186s"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(âæµûÿÿÿÿ
+D
+java:S1197".Move the array designators [][][] to the type.(ëÆ…Ó
+@
+java:S1197)"*Move the array designators [] to the type.(ÎÍó
+h
+java:S3776H"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(âñ¸Ì
+N	java:S106L"9Replace this use of System.out or System.err by a logger.(–Â•
+O
+java:S1161R":Add the "@Override" annotation above this method signature(İ¼õA
+t
+java:S2142c"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
+:
+java:S1659x"Declare "y" on a separate line.(±šß¯ùÿÿÿÿ
+˜
+java:S1186²"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¢—Ì¶
+˜
+java:S1186¶"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(òÌøÆ
+˜
+java:S1186º"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(²“
+˜
+java:S1186Â"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ƒµÚª
+˜
+java:S1186Ë"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«Ã”È
+X
+java:S1659˜"ADeclare "size" and all following declarations on a separate line.(­¦§ÿ
+6
+java:S1659™"Declare "y" on a separate line.(ƒ²½
+M
+java:S1117§"6Rename "x" which hides the field declared at line 153.(ì§Å­
+M
+java:S1117¨"6Rename "y" which hides the field declared at line 153.(Á¨„“
+>
+java:S1128"(Remove this unused import 'RetraTech.B'.(Åß÷
+T
+java:S1128">Remove this unused import 'sun.java2d.pipe.ShapeSpanIterator'.(ßÅø¡
+@
+java:S1068)"*Remove this unused "SCORES" private field.(ÎÍó
+L
+java:S10681"1Remove this unused "GAME_OVER_MSG" private field.(Û‚¢¤øÿÿÿÿ
+1
+java:S1700–"Rename field "figure"(ä£‡ûÿÿÿÿ
+K
+java:S1191"5Use classes from the Java API instead of Sun classes.(ßÅø¡

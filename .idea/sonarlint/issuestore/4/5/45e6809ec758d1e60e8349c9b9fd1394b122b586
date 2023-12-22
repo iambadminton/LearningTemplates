@@ -1,0 +1,13 @@
+
+Q	java:S125"<This block of commented-out lines of code should be removed.(ÊÿÅƒ
+S	java:S106	"9Replace this use of System.out or System.err by a logger.(™·èªúÿÿÿÿ
+V
+java:S1854"@Remove this useless assignment to local variable "prevLocalMax".(úÜ¢
+?
+java:S1481")Remove this unused "left" local variable.(ô›¡É
+@
+java:S1481"*Remove this unused "right" local variable.(˜ï­¸
+G
+java:S1481"1Remove this unused "prevLocalMax" local variable.(úÜ¢
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÑÕ£
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Îˆ«Ô

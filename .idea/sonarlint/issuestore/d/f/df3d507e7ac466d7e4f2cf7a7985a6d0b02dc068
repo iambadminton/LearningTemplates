@@ -1,0 +1,33 @@
+
+M
+java:S18541"7Remove this useless assignment to local variable "max".(ìıôİ
+c
+java:S1854"HRemove this useless assignment to local variable "streamFromCollection".(éá¬ùÿÿÿÿ
+T
+java:S1481"9Remove this unused "streamFromCollection" local variable.(éá¬ùÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(©ùùæ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ğ»ı“
+V	java:S125"<This block of commented-out lines of code should be removed.(´Îèîùÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(îçâƒ
+A
+java:S2201$"+The return value of "collect" must be used.(ª™¨¹
+7
+java:S3864#"!Remove this use of "Stream.peek".(ßˆ±ö
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(ßˆ±ö
+A
+java:S2201+"+The return value of "collect" must be used.(ª™¨¹
+7
+java:S3864*"!Remove this use of "Stream.peek".(é¾•»
+<
+java:S3864("!Remove this use of "Stream.peek".(¼õõƒùÿÿÿÿ
+S	java:S106("9Replace this use of System.out or System.err by a logger.(¼õõƒùÿÿÿÿ
+N	java:S106*"9Replace this use of System.out or System.err by a logger.(é¾•»
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(­ë•„
+>
+java:S14811"(Remove this unused "max" local variable.(ìıôİ
+S	java:S1066"9Replace this use of System.out or System.err by a logger.(ê­ÙŸùÿÿÿÿ
+>
+java:S16043"(Make this anonymous inner class a lambda(¾Ó©û
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñ€—
+M
+java:S36556"2Call "min.isPresent()" before accessing the value.(ê­ÙŸùÿÿÿÿ

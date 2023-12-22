@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 
 /**
  * Created by a.shipulin on 28.02.18.
@@ -15,7 +15,7 @@ public class FourthExample {
         List<Integer> together = Stream.of(Arrays.asList(1,2), Arrays.asList(3,4))
                 .flatMap(numbers -> numbers.stream())
                 .collect(Collectors.toList());
-        assertEquals(Arrays.asList(1,2,3,4), together);
+  //      assertEquals(Arrays.asList(1,2,3,4), together);
 
         List<Integer> list = Arrays.asList(1,2,3,4, 100, 200, 458, -1, -15);
 

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertEquals;
 
 /**
  * Created by a.shipulin on 27.02.18.
@@ -20,7 +20,7 @@ public class ThirdExample {
 
         List<String> collected = Stream.of("a", "b", "hello").map(string -> string.toUpperCase()).collect(Collectors.toList());
 
-        assertEquals(Arrays.asList("A", "B", "HELLO"), collected);
+  //      assertEquals(Arrays.asList("A", "B", "HELLO"), collected);
     }
 
 

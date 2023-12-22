@@ -1,0 +1,17 @@
+
+N	java:S106"9Replace this use of System.out or System.err by a logger.(÷ğåŸ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ù£·êıÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(÷ğåŸ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ù£·êıÿÿÿÿ
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(‡îÁÂùÿÿÿÿ
+N	java:S106""9Replace this use of System.out or System.err by a logger.(ïÍØƒ
+V
+java:S1612$"@Replace this lambda with method reference 'System.out::println'.(¹·®„
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(¹·®„
+V
+java:S1612%"@Replace this lambda with method reference 'System.out::println'.(ğĞøÙ
+N	java:S106%"9Replace this use of System.out or System.err by a logger.(ğĞøÙ
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(öãÚØÿÿÿÿÿ
+N	java:S1061"9Replace this use of System.out or System.err by a logger.(«Ãıû
+R
+java:S3655."7Call "Optional#isPresent()" before accessing the value.( Û‰ëşÿÿÿÿ

@@ -1,0 +1,10 @@
+
+A
+java:S1905"&Remove this unnecessary cast to "int".(óí³Çşÿÿÿÿ
+E
+java:S1197"*Move the array designators [] to the type.(¡şÏÖøÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ã¨£†
+K
+java:S2209"5Change this instance-reference to a static reference.(ã¨£†
+0
+java:S1220""Move this file to a named package.
